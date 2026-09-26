@@ -2,14 +2,15 @@
    EDIT PERSONAL CONTENT DI SINI SAJA 🎀
    ========================================================= */
 const birthdayData = {
-  name: "NAMA TEMAN",
-  nickname: "PANGGILAN",
-  sender: "NAMA KAMU",
+  name: "Suyati Farica",
+  nickname: "Rikaaa",
+  sender: "Arjuna",
   poemSender: "Dilan, Bandung 1990",
   poemPhoto: "assets/photo.jpg",
 
   message: `
-Selamat ulang tahun! 🎂💗
+Rika ada sedikit nih dari Juna
+Selamat ulang tahun katanya!! 🎂💗
 
 Semoga di umur yang baru ini,
 hari-harimu dipenuhi banyak hal baik.
