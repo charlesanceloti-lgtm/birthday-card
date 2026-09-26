@@ -1,0 +1,210 @@
+:root{
+  --pink:#ff91ad;--pink-dark:#ed6c8e;--pink-soft:#ffdce7;
+  --lav:#d9cdf4;--cream:#fffaf5;--bg:#fff3f8;--text:#5c4650;
+  --muted:#9b7f89;--white:#fff;--shadow:0 20px 55px rgba(205,105,135,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;overflow-x:hidden;color:var(--text);font-family:"DM Sans",sans-serif;
+ background:
+ radial-gradient(circle at 10% 5%,#ffe2eb 0,transparent 27%),
+ radial-gradient(circle at 95% 18%,#e7def9 0,transparent 28%),
+ linear-gradient(180deg,#fff9fb,var(--bg));
+}
+button{font:inherit}
+.screen{
+ min-height:100svh;padding:72px 20px 65px;display:none;position:relative;
+ align-items:center;justify-content:center;text-align:center;
+}
+.screen.active{display:flex;animation:screenIn .7s ease both}
+.loader{
+ position:fixed;inset:0;z-index:9999;background:#fff7fa;display:grid;place-items:center;
+ color:var(--muted);transition:.6s
+}
+.loader.hide{opacity:0;visibility:hidden}
+.loader-bunny{font-size:4rem;animation:bob 1.4s infinite}
+.loader-dots{position:absolute;margin-top:105px;color:var(--pink);letter-spacing:6px}
+.loader p{position:absolute;margin-top:155px;font-size:.82rem}
+.ambient span{position:fixed;z-index:2;pointer-events:none;color:rgba(237,108,142,.38)}
+.ambient span:nth-child(1){left:5%;top:20%;animation:float 4s infinite}
+.ambient span:nth-child(2){right:7%;top:29%;font-size:1.5rem;animation:float 5s infinite reverse}
+.ambient span:nth-child(3){left:7%;bottom:18%;animation:twinkle 2s infinite}
+.ambient span:nth-child(4){right:9%;bottom:12%;animation:float 4.5s infinite}
+.ambient span:nth-child(5){left:15%;top:8%;animation:twinkle 2.7s infinite}
+.music-btn{
+ position:fixed;z-index:100;top:14px;right:14px;border:1px solid white;
+ background:rgba(255,255,255,.75);backdrop-filter:blur(12px);border-radius:999px;
+ width:42px;height:42px;cursor:pointer;box-shadow:0 8px 25px #a56b7b1a
+}
+.music-btn.on{background:var(--pink);color:#fff}
+.opening{flex-direction:column}
+.stars{color:var(--pink);letter-spacing:8px;margin-bottom:15px}
+.bunny-top{font-size:4rem;animation:bob 2.5s infinite}
+.tiny-label{
+ color:var(--pink-dark);font-size:.7rem;font-weight:700;letter-spacing:.17em;
+ margin:10px 0
+}
+h1,h2,h3{font-family:"Fredoka",sans-serif;margin:0}
+.opening h1{font-size:clamp(2.8rem,13vw,5rem);margin:8px 0 14px}
+.opening h1 span,.birthday h2,.final h2{color:var(--pink-dark)}
+.lead{color:var(--muted);line-height:1.7;max-width:450px;margin:0 auto}
+.envelope-teaser{margin:25px auto 15px}
+.envelope-mini{
+ width:110px;height:78px;margin:auto;position:relative;background:#ffc0d2;
+ border-radius:8px;box-shadow:var(--shadow);transform:rotate(-3deg)
+}
+.envelope-mini:before{
+ content:"";position:absolute;left:0;top:0;border-left:55px solid transparent;
+ border-right:55px solid transparent;border-top:42px solid #ffabc2
+}
+.mini-letter{position:relative;z-index:2;font-size:2.4rem;padding-top:20px}
+.cute-btn{
+ border:0;background:linear-gradient(135deg,var(--pink),#ffb3c6);color:#fff;font-weight:700;
+ padding:14px 23px;border-radius:999px;box-shadow:0 13px 30px #ed6c8e40;
+ cursor:pointer;transition:.2s
+}
+.cute-btn:hover{transform:translateY(-3px)}
+.cute-btn:active{transform:scale(.97)}
+.tiny-hint{font-size:.72rem;color:#b4939e;margin-top:12px}
+.envelope-page{background:radial-gradient(circle,#fff,#fff3f8 65%)}
+.letter-stage{width:min(390px,100%);text-align:center}
+.big-envelope{
+ width:min(330px,90vw);aspect-ratio:1.42;margin:30px auto;position:relative;
+ perspective:900px;filter:drop-shadow(0 22px 30px #a9697b22)
+}
+.envelope-back,.envelope-front{position:absolute;inset:0;border-radius:9px}
+.envelope-back{background:#ffc7d8}
+.envelope-front{z-index:4;background:linear-gradient(135deg,#ffbdd0,#ffa9c0)}
+.flap{
+ position:absolute;z-index:5;left:0;top:0;width:0;height:0;
+ border-left:165px solid transparent;border-right:165px solid transparent;
+ border-top:105px solid #ffb0c7;transform-origin:top;transition:1s
+}
+.paper{
+ position:absolute;z-index:3;left:8%;width:84%;height:82%;top:8%;background:#fffdf9;
+ border-radius:6px;padding:28px 15px;transition:1s;box-shadow:0 8px 15px #9e647515
+}
+.paper span{font-size:2.7rem}.paper p{font-family:"Pacifico",cursive;color:#b27789;line-height:1.5}
+.big-envelope.open .flap{transform:rotateX(180deg);z-index:1}
+.big-envelope.open .paper{transform:translateY(-65%)}
+.big-envelope.open .envelope-front{opacity:.2;transition:.5s}
+.birthday{flex-direction:column;overflow:hidden}
+.bunny-big{font-size:4.5rem;animation:bob 2s infinite}
+.cake-wrap{font-size:4.8rem;margin:6px 0 18px;animation:bob 2.3s infinite}
+.birthday h1{font-size:clamp(2.8rem,13vw,5rem)}
+.birthday h2{font-size:clamp(2rem,8vw,3.2rem);margin:8px}
+.cute-divider{color:var(--pink);letter-spacing:9px;margin-top:22px}
+.scroll-btn{
+ border:0;background:transparent;color:var(--pink-dark);font-weight:700;cursor:pointer;margin-top:28px
+}
+.content{flex-direction:column}
+.content-wrap{width:min(850px,100%);margin:auto}
+.content h2{font-size:clamp(2rem,9vw,3.3rem);margin:8px 0}
+.subtitle{color:var(--muted);margin-bottom:25px}
+.paper-card{
+ position:relative;background:#fffdf8;border:1px solid #eadfd7;border-radius:10px;
+ padding:48px 23px 30px;text-align:left;margin-top:28px;box-shadow:0 18px 45px #866b7215;
+ transform:rotate(-.4deg)
+}
+.paper-tape{
+ position:absolute;top:-13px;left:calc(50% - 50px);width:100px;height:28px;
+ background:#ffd1de;transform:rotate(-3deg)
+}
+.typed-message{white-space:pre-line;line-height:1.9;min-height:180px}
+.signature{text-align:right;font-family:"Pacifico",cursive;color:var(--pink-dark);margin-top:25px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin:28px 0}
+.photo{
+ background:#fff;padding:8px 8px 14px;border-radius:7px;box-shadow:0 12px 28px #866b7214;
+ cursor:pointer;transition:.25s
+}
+.photo:nth-child(odd){transform:rotate(-1.7deg)}.photo:nth-child(even){transform:rotate(1.7deg)}
+.photo:hover{transform:translateY(-5px) rotate(0)}
+.photo img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;display:block}
+.photo p{font-family:"Fredoka",sans-serif;font-size:.82rem;line-height:1.2;margin:9px 2px 0;color:var(--text)}
+.wishes{display:grid;gap:14px;margin-top:25px}
+.wish{
+ display:flex;gap:14px;align-items:flex-start;text-align:left;padding:20px;
+ background:rgba(255,255,255,.72);border:1px solid #fff;border-radius:23px;
+ box-shadow:0 10px 28px #866b7210
+}
+.wish-icon{font-size:1.8rem}.wish p{margin:0;color:var(--text);line-height:1.55}
+.bunny-game{background:linear-gradient(180deg,#fff6fa,#f8f2ff)}
+.game-card{width:min(650px,100%);padding:32px 18px;background:#ffffffbd;border:1px solid white;border-radius:32px;box-shadow:var(--shadow)}
+.interactive-bunny{font-size:4rem;animation:bob 2s infinite;margin-bottom:5px}
+.bunny-field{
+ height:260px;margin:20px auto 10px;max-width:510px;position:relative;overflow:hidden;
+ border-radius:24px;background:linear-gradient(#eaf9ff,#fff);border:2px dashed #ffc4d5
+}
+#bunnyBtn{
+ position:absolute;left:45%;top:40%;border:0;background:transparent;font-size:3rem;
+ cursor:pointer;transition:left .28s ease,top .28s ease
+}
+.catch-count{font-weight:700;color:var(--pink-dark)}
+.game-done{animation:pop .5s both}.game-done h3{color:var(--pink-dark);margin:8px}
+.surprise{flex-direction:column}
+.surprise-card{width:min(600px,100%);padding:38px 22px;background:#fffdfdce;border:1px solid white;border-radius:32px;box-shadow:var(--shadow)}
+.gift-icon{font-size:4.5rem;animation:bob 2s infinite}
+.surprise-reveal{margin-top:28px;animation:pop .6s both}
+.sparkle-big{font-size:3rem;animation:twinkle 1.2s infinite}
+.surprise-reveal p{white-space:pre-line;line-height:1.8}
+.final{overflow:hidden}
+.final-card{width:min(620px,100%);padding:36px 21px;background:#ffffffbd;border:1px solid white;border-radius:35px;box-shadow:var(--shadow)}
+.final-bunny{font-size:4rem;animation:bob 2s infinite}
+.final h2{font-size:clamp(2.1rem,9vw,3.4rem);margin:12px 0 22px}
+.final-letter{background:#fffdf8;border-radius:15px;padding:25px;text-align:left;border:1px solid #eee0e4}
+.final-letter p{white-space:pre-line;line-height:1.8;margin:0}
+.final-sign{text-align:center;margin-top:20px}
+.end-line{color:var(--pink);letter-spacing:8px;margin:26px 0}
+.ghost-btn{border:1px solid #efb1c1;background:#fff8fb;color:var(--pink-dark);border-radius:999px;padding:10px 15px;cursor:pointer}
+.hidden{display:none!important}
+.lightbox{position:fixed;inset:0;z-index:300;display:none;place-items:center;padding:22px;background:#392a32e8;backdrop-filter:blur(8px)}
+.lightbox.show{display:grid;animation:fade .3s}
+.lightbox img{max-width:95vw;max-height:75vh;border-radius:14px;box-shadow:0 20px 60px #0005}
+.lightbox p{color:white;text-align:center;margin:10px 0 0}
+#closeLightbox{position:absolute;right:15px;top:8px;border:0;background:none;color:#fff;font-size:2.7rem;cursor:pointer}
+.toast{position:fixed;z-index:500;bottom:18px;left:50%;transform:translate(-50%,20px);opacity:0;
+ background:#5c4650;color:#fff;padding:10px 15px;border-radius:999px;font-size:.8rem;transition:.3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.confetti-piece{position:fixed;z-index:90;top:-20px;pointer-events:none;animation:fall var(--t) linear forwards}
+.spark{position:absolute;color:#ff91ad;animation:twinkle 2s infinite}
+@keyframes screenIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-10px) rotate(2deg)}}
+@keyframes float{50%{transform:translateY(-17px)}}
+@keyframes twinkle{50%{opacity:.2;transform:scale(1.3)}}
+@keyframes pop{0%{opacity:0;transform:scale(.8)}70%{transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes fall{to{transform:translate(var(--x),110vh) rotate(720deg)}}
+@media(min-width:700px){.gallery{grid-template-columns:repeat(3,1fr)}.wishes{grid-template-columns:repeat(2,1fr)}.paper-card{padding:58px 50px 35px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+
+/* POEM SLIDE — editorial scrapbook style */
+.poem-screen{position:relative;overflow:hidden;background:#f6efdf;color:#654f55}
+.poem-page{position:relative;width:min(1180px,94vw);min-height:calc(100vh - 90px);margin:0 auto;padding:72px 78px 54px;background:#f8f0df;border:1px solid #ddceb2;box-shadow:0 12px 35px rgba(88,67,53,.06);overflow:hidden}
+.poem-page:before{content:"";position:absolute;inset:12px;border:1px solid rgba(190,164,125,.45);pointer-events:none}
+.poem-chapter{position:absolute;top:76px;left:78px;font-family:'DM Sans',sans-serif;letter-spacing:.28em;font-size:13px;color:#a88670}
+.poem-sparkle{position:absolute;right:78px;top:76px;color:#ad8a67;font-size:20px}
+.poem-title{margin:52px 0 88px;text-align:center;font-family:Georgia,'Times New Roman',serif;font-size:clamp(54px,6vw,78px);line-height:1;color:#70535b;font-weight:700}
+.poem-layout{display:grid;grid-template-columns:minmax(420px,.95fr) minmax(420px,1.05fr);align-items:center;gap:58px;max-width:1050px;margin:0 auto}
+.poem-photo-column{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.poem-photo-frame{width:min(100%,610px);aspect-ratio:1.55/1;border:0;padding:0;background:#eee3cf;box-shadow:0 13px 28px rgba(93,69,55,.14);transform:rotate(-1.5deg);cursor:pointer;overflow:hidden;position:relative}
+.poem-photo-frame:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 10px rgba(255,250,238,.62);pointer-events:none}
+.poem-photo-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.poem-photo-hint{margin:0;transform:translateY(-2px) rotate(-1.5deg);width:min(100%,610px);padding:9px 12px 10px;background:#fffaf0;color:#a7836e;text-align:center;font-family:'DM Sans',sans-serif;font-size:13px;box-shadow:0 5px 14px rgba(93,69,55,.08)}
+.poem-copy{text-align:left;padding:18px 18px 12px 0}
+#poemText{white-space:pre-line;font-family:'Patrick Hand',cursive;font-size:clamp(22px,2.25vw,31px);line-height:1.9;color:#654f55;margin:0}
+.poem-sign{margin-top:28px;font-family:'Patrick Hand',cursive;font-size:25px;color:#654f55;text-align:right;padding-right:8px}
+.poem-footer{position:absolute;left:0;right:0;bottom:55px;text-align:center;font-family:'DM Sans',sans-serif;font-size:16px;color:#a07e6a}
+@media(max-width:720px){
+  .poem-page{width:94vw;min-height:calc(100vh - 70px);padding:62px 24px 70px}
+  .poem-page:before{inset:8px}
+  .poem-chapter{left:26px;top:62px;font-size:10px}
+  .poem-sparkle{right:28px;top:61px}
+  .poem-title{margin:48px 0 48px;font-size:52px}
+  .poem-layout{grid-template-columns:1fr;gap:34px}
+  .poem-copy{padding:0 8px}
+  #poemText{font-size:21px;line-height:1.7}
+  .poem-sign{font-size:22px}
+  .poem-footer{bottom:30px;font-size:12px;padding:0 30px}
+}

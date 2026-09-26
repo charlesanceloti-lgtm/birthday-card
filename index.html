@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fff3f8">
+<title>For You 🎀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loader" class="loader">
+  <div class="loader-bunny">🐰</div>
+  <div class="loader-dots">• • •</div>
+  <p>preparing your surprise...</p>
+</div>
+
+<div class="ambient">
+  <span>✦</span><span>♡</span><span>✿</span><span>✦</span><span>♡</span>
+</div>
+
+<button id="musicBtn" class="music-btn">🎵</button>
+<audio id="music" loop>
+  <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+<main>
+
+<!-- OPENING -->
+<section id="opening" class="screen active opening">
+  <div class="stars">✦　✧　♡　✦</div>
+  <div class="bunny bunny-top">🐰🎀</div>
+  <p class="tiny-label">A LITTLE SOMETHING FOR YOU</p>
+  <h1>Hey, <span id="openName">you</span>! 👀</h1>
+  <p class="lead">Aku punya sesuatu kecil yang mau aku kasih...</p>
+  <div class="envelope-teaser">
+    <div class="envelope-mini">
+      <div class="mini-letter">💌</div>
+    </div>
+  </div>
+  <button id="startBtn" class="cute-btn">Buka suratnya 🎀</button>
+  <p class="tiny-hint">tap me ♡</p>
+</section>
+
+<!-- ENVELOPE -->
+<section id="envelopePage" class="screen envelope-page">
+  <div class="letter-stage">
+    <p class="tiny-label">PRIVATE LITTLE LETTER</p>
+    <div id="bigEnvelope" class="big-envelope">
+      <div class="envelope-back"></div>
+      <div class="paper">
+        <span>💌</span>
+        <p>For someone special<br>on her special day ♡</p>
+      </div>
+      <div class="envelope-front"></div>
+      <div class="flap"></div>
+    </div>
+    <button id="openLetterBtn" class="cute-btn">Open it 💌</button>
+  </div>
+</section>
+
+<!-- BIRTHDAY -->
+<section id="birthday" class="screen birthday">
+  <div id="confetti"></div>
+  <div class="bunny-big">🐰</div>
+  <div class="cake-wrap">🎂</div>
+  <p class="tiny-label">TODAY IS YOUR DAY</p>
+  <h1>Happy Birthday!</h1>
+  <h2 id="birthdayName">NAME</h2>
+  <p class="lead">Another year, another cute little chapter. 🌷</p>
+  <div class="cute-divider">♡ ✦ ♡ ✦ ♡</div>
+  <button class="scroll-btn" data-next="message">ada pesan buat kamu ↓</button>
+</section>
+
+<!-- MESSAGE -->
+<section id="message" class="screen content">
+  <div class="content-wrap">
+    <p class="tiny-label">A MESSAGE FOR YOU 💌</p>
+    <h2>Just a little note...</h2>
+    <div class="paper-card">
+      <div class="paper-tape"></div>
+      <div id="typedMessage" class="typed-message"></div>
+      <div class="signature">— <span id="sender">someone</span> 🎀</div>
+    </div>
+  </div>
+  <button id="messageNext" class="scroll-btn hidden" data-next="memories">lihat kenangan ↓</button>
+</section>
+
+<!-- MEMORIES -->
+<section id="memories" class="screen content">
+  <div class="content-wrap">
+    <p class="tiny-label">LITTLE MEMORIES 📸</p>
+    <h2>Moments worth keeping</h2>
+    <p class="subtitle">Tap a photo to make it bigger ♡</p>
+    <div id="gallery" class="gallery"></div>
+  </div>
+  <button class="scroll-btn" data-next="poem">ada sesuatu lagi... ✍️ ↓</button>
+</section>
+
+<!-- POEM -->
+<section id="poem" class="screen content poem-screen">
+  <div class="poem-page">
+    <div class="poem-chapter">CHAPTER 03</div>
+    <div class="poem-sparkle">✦</div>
+    <h2 class="poem-title">Milea 1</h2>
+
+    <div class="poem-layout">
+      <div class="poem-photo-column">
+        <button class="poem-photo-frame" type="button" aria-label="Perbesar foto puisi" id="poemPhotoButton">
+          <img id="poemPhoto" src="assets/photo.jpg" alt="Foto puisi asli">
+        </button>
+        <p class="poem-photo-hint">klik untuk memperbesar</p>
+      </div>
+
+      <div class="poem-copy">
+        <p id="poemText"></p>
+        <div class="poem-sign">— <span id="poemSender">someone</span></div>
+      </div>
+    </div>
+
+    <p class="poem-footer">Sebuah potongan kecil yang dipilih khusus untuk hari spesial ini. 📖</p>
+  </div>
+  <button class="scroll-btn" data-next="wishes">lanjut ke wishes ↓</button>
+</section>
+
+<!-- WISHES -->
+<section id="wishes" class="screen content">
+  <div class="content-wrap">
+    <p class="tiny-label">A FEW WISHES 🌷</p>
+    <h2>For your new chapter</h2>
+    <div id="wishesList" class="wishes"></div>
+  </div>
+  <button class="scroll-btn" data-next="bunnyGame">there's more 👀 ↓</button>
+</section>
+
+<!-- BUNNY GAME -->
+<section id="bunnyGame" class="screen bunny-game">
+  <div class="game-cloud">☁️</div>
+  <div class="game-card">
+    <div id="bunny" class="interactive-bunny">🐰</div>
+    <p class="tiny-label">A VERY IMPORTANT QUESTION</p>
+    <h2>Can you catch the bunny? 🐰</h2>
+    <p>Try tapping it... if you can. 😭</p>
+    <div class="bunny-field" id="bunnyField">
+      <button id="bunnyBtn" aria-label="Catch the bunny">🐰</button>
+    </div>
+    <p id="catchCount" class="catch-count">Caught: 0 / 3</p>
+    <div id="gameDone" class="game-done hidden">
+      <div>🎉 🐰 🎀</div>
+      <h3>You caught it!</h3>
+      <p>Okay okay... you deserve the final surprise. 💗</p>
+      <button class="cute-btn" data-next="surprise">Open surprise ✨</button>
+    </div>
+  </div>
+</section>
+
+<!-- SURPRISE -->
+<section id="surprise" class="screen surprise">
+  <div class="surprise-card">
+    <div class="gift-icon">🎁</div>
+    <p class="tiny-label">ONE LAST THING...</p>
+    <h2 id="surpriseTitle">Don't open this yet 👀</h2>
+    <p>Actually... never mind.</p>
+    <button id="surpriseBtn" class="cute-btn">OPEN IT! 🎀</button>
+    <div id="surpriseReveal" class="hidden surprise-reveal">
+      <div class="sparkle-big">✨</div>
+      <p id="surpriseText"></p>
+      <button class="scroll-btn" data-next="final">last page 💌 ↓</button>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section id="final" class="screen final">
+  <div id="finalDecor"></div>
+  <div class="final-card">
+    <div class="final-bunny">🐰💗</div>
+    <p class="tiny-label">ONE LAST MESSAGE</p>
+    <h2>Happy Birthday, <span id="finalName">you</span>! 🎂</h2>
+    <div class="final-letter">
+      <p id="finalText"></p>
+    </div>
+    <div class="signature final-sign">— <span id="finalSender">your friend</span> ♡</div>
+    <div class="end-line">✦　♡　🌸　♡　✦</div>
+    <button id="restartBtn" class="ghost-btn">Replay from the beginning ↻</button>
+  </div>
+</section>
+
+</main>
+
+<div id="lightbox" class="lightbox">
+  <button id="closeLightbox">×</button>
+  <img id="lightboxImg" alt="Memory">
+  <p id="lightboxCaption"></p>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
