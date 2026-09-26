@@ -1,5 +1,5 @@
 /* =========================================================
-   EDIT PERSONAL CONTENT DI SINI SAJA 🎀
+   EDIT PERSONAL CONTENT DI SINI SAJA 🎀 n
    ========================================================= */
 const birthdayData = {
   name: "Suyati Farica",
