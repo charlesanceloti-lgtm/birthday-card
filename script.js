@@ -1,5 +1,5 @@
 /* =========================================================
-   EDIT PERSONAL CONTENT DI SINI SAJA 🎀 n
+   EDIT PERSONAL CONTENT DI SINI SAJA 🎀
    ========================================================= */
 const birthdayData = {
   name: "Suyati Farica",
@@ -10,7 +10,7 @@ const birthdayData = {
 
   message: `
 Rika ada sedikit nih dari Juna
-Selamat ulang tahun katanya!! 🎂💗
+Selamat ulang tahun katanya 🎂💗
 
 Semoga di umur yang baru ini,
 hari-harimu dipenuhi banyak hal baik.
@@ -58,7 +58,7 @@ Happy Birthday! 🎂🌷✨
   `,
 
   photos: [
-    {image:"assets/photo1.jpg", caption:"Random moment 🌷"},
+    {image:"assets/photo1.jpg", caption:"Fisrt Photo 🌷"},
     {image:"assets/photo2.jpg", caption:"Good times 💗"},
     {image:"assets/photo3.jpg", caption:"A little memory ✨"},
     {image:"assets/photo4.jpg", caption:"Why were we like this 😭"}
@@ -162,13 +162,6 @@ $("#startBtn").onclick=()=>show("envelopePage");
 $("#openLetterBtn").onclick=()=>{
   $("#bigEnvelope").classList.add("open");
   confetti(55);
-  const bgMusic=$("#music");
-  bgMusic.volume=0.45;
-  bgMusic.play().then(()=>{
-    musicOn=true;
-    $("#musicBtn").classList.add("on");
-    $("#musicBtn").textContent="🔊";
-  }).catch(()=>{});
   setTimeout(()=>show("birthday"),950);
 };
 
